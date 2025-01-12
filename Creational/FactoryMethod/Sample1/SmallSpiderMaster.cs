@@ -8,7 +8,7 @@ namespace Creational.FactoryMethod.Sample1
 {
     public class SmallSpiderMaster : SpiderMaster
     {
-        protected override ISpider GetSpider()
+        protected override ISpider CreateSpider()
         {
             return new SmallSpider();
         }
