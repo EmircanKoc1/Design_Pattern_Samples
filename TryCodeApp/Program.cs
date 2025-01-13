@@ -5,6 +5,7 @@ using Creational.Factory.Sample1;
 using Creational.Factory.Sample1.Enums;
 using Creational.Factory.Sample1.Models;
 using Creational.FactoryMethod.Sample1;
+using Creational.Singleton.Sample1;
 
 var userEventFactory = new UserEventFactory();
 
@@ -49,5 +50,17 @@ builder.SetCPU("İntel core i7 10750H", 6, 12);
 var computer = builder.BuildComputer();
 
 Console.WriteLine(computer);
+
+#endregion
+
+#region Singleton Pattern sample 1
+
+WindowOptions? windowOption = Settings.WindowOptions;
+
+windowOption.PanelType = "OLED";
+windowOption.Height = 1080;
+windowOption.Width = 1920;
+
+Console.WriteLine(windowOption);
 
 #endregion
