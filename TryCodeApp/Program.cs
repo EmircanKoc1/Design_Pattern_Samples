@@ -5,6 +5,7 @@ using Creational.Factory.Sample1;
 using Creational.Factory.Sample1.Enums;
 using Creational.Factory.Sample1.Models;
 using Creational.FactoryMethod.Sample1;
+using Creational.Prototype.Sample1;
 using Creational.Singleton.Sample1;
 
 var userEventFactory = new UserEventFactory();
@@ -62,5 +63,42 @@ windowOption.Height = 1080;
 windowOption.Width = 1920;
 
 Console.WriteLine(windowOption);
+
+#endregion
+
+#region Prototype Design pattern sample 1
+
+Product product = new Product()
+{
+    Name = "Iphone 15 pro",
+    Price = 80_000,
+    ComplexDefiner = new ComplexDefiner()
+    {
+        Id = Guid.NewGuid(),
+        CreatedAt = DateTime.Now,
+    }
+};
+
+Console.WriteLine();
+Console.WriteLine(product);
+Console.WriteLine();
+
+if (product.Clone() as Product is Product product2)
+{
+    product2.Name = "Samsung s24";
+    product2.Price = 30_000;
+
+    if (product2.ComplexDefiner is ComplexDefiner complexDefiner)
+    {
+        complexDefiner.Id = Guid.NewGuid();
+        complexDefiner.CreatedAt = DateTime.Now.AddHours(10);
+    }
+
+    Console.WriteLine(product);
+    Console.WriteLine();
+    Console.WriteLine(product2);
+}
+
+
 
 #endregion
