@@ -1,4 +1,4 @@
-﻿#region Factory Sample 1
+﻿#region Abstract Design Pattern sample 1
 
 using Creational.Builder.Sample1;
 using Creational.Factory.Sample1;
