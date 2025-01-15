@@ -8,6 +8,7 @@ using Creational.FactoryMethod.Sample1;
 using Creational.ObjectPool.Sample1;
 using Creational.Prototype.Sample1;
 using Creational.Singleton.Sample1;
+using Structural.Adapter.Sample1;
 
 var userEventFactory = new UserEventFactory();
 
@@ -139,6 +140,17 @@ else
 
 
 
+
+
+#endregion
+
+
+#region Adapter Design Pattern sample1
+
+IFahrenheitTemperatureService fahrenheitTemperatureService = new FahrenheitTemperatureService();
+ICelciusTemperatureService celciusTemperatureService = new CelciusToFahrenheitAdapter(fahrenheitTemperatureService);
+
+celciusTemperatureService.SetTemperature(22);
 
 
 #endregion
