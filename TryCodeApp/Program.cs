@@ -5,6 +5,7 @@ using Creational.Factory.Sample1;
 using Creational.Factory.Sample1.Enums;
 using Creational.Factory.Sample1.Models;
 using Creational.FactoryMethod.Sample1;
+using Creational.ObjectPool.Sample1;
 using Creational.Prototype.Sample1;
 using Creational.Singleton.Sample1;
 
@@ -98,6 +99,45 @@ if (product.Clone() as Product is Product product2)
     Console.WriteLine();
     Console.WriteLine(product2);
 }
+
+
+
+#endregion
+
+
+#region Object Pool Design Pattern sample 1
+
+var bulletPool = new BulletPool(2);
+var bullet1 = bulletPool.GetBullet();
+var bullet2 = bulletPool.GetBullet();
+var bullet3 = bulletPool.GetBullet();
+var bullet4 = bulletPool.GetBullet();
+
+if (bullet1 is Bullet bulletX)
+    Console.WriteLine(bulletX);
+else
+    Console.WriteLine("Bullet1 is null");
+
+if (bullet2 is Bullet bulletY)
+    Console.WriteLine(bulletY);
+else
+    Console.WriteLine("Bullet2 is null");
+
+if (bullet3 is Bullet bulletZ)
+    Console.WriteLine(bulletZ);
+else
+    Console.WriteLine("Bullet3 is null");
+
+bulletPool.ReturnBullet(bullet2!);
+bullet4 = bulletPool.GetBullet();
+
+if (bullet4 is Bullet bulletA)
+    Console.WriteLine(bulletA);
+else
+    Console.WriteLine("Bullet4 is null");
+
+
+
 
 
 
