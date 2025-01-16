@@ -9,6 +9,7 @@ using Creational.ObjectPool.Sample1;
 using Creational.Prototype.Sample1;
 using Creational.Singleton.Sample1;
 using Structural.Adapter.Sample1;
+using Structural.Decorator.Sample1;
 using Structural.Facade.Sample1;
 using Structural.Proxy.Sample1;
 
@@ -183,5 +184,18 @@ HomeTheaterSystem homeTheaterSystem = new HomeTheaterSystem(
 
 homeTheaterSystem.StartHomeTheaterSystem();
 homeTheaterSystem.FinishHomeTheaterSystem();
+
+#endregion
+
+#region Decorator Design Pattern sample 1
+
+ICoffee espresso = new Coffee();
+
+ICoffee flatWhite = new CoffeeMilkDecorator(espresso);
+ICoffee macchiato = new CoffeeMilkFoamDecorator(espresso);
+
+Console.WriteLine(flatWhite.GetDescription() + flatWhite.GetCost());
+Console.WriteLine(macchiato.GetDescription() + macchiato.GetCost());
+
 
 #endregion
