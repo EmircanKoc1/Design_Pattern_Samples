@@ -9,6 +9,7 @@ using Creational.ObjectPool.Sample1;
 using Creational.Prototype.Sample1;
 using Creational.Singleton.Sample1;
 using Structural.Adapter.Sample1;
+using Structural.Facade.Sample1;
 using Structural.Proxy.Sample1;
 
 var userEventFactory = new UserEventFactory();
@@ -169,5 +170,18 @@ IMatService matServiceProxyChain = new MatServiceLogProxy(new MatServiceValidati
 matServiceProxyChain.Sum(20, 3);
 //matServiceProxyChain.Divide(8, 0);//throw exception
 matServiceProxyChain.Divide(12, 4);
+
+#endregion
+
+#region Facade Design Pattern sample 1
+
+HomeTheaterSystem homeTheaterSystem = new HomeTheaterSystem(
+    television: new Television(),
+    soundSystem: new SoundSystem(),
+    lights: new Lights(),
+    blinds: new Blinds());
+
+homeTheaterSystem.StartHomeTheaterSystem();
+homeTheaterSystem.FinishHomeTheaterSystem();
 
 #endregion
