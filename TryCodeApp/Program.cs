@@ -9,6 +9,7 @@ using Creational.ObjectPool.Sample1;
 using Creational.Prototype.Sample1;
 using Creational.Singleton.Sample1;
 using Structural.Adapter.Sample1;
+using Structural.Proxy.Sample1;
 
 var userEventFactory = new UserEventFactory();
 
@@ -152,5 +153,21 @@ ICelciusTemperatureService celciusTemperatureService = new CelciusToFahrenheitAd
 
 celciusTemperatureService.SetTemperature(22);
 
+
+#endregion
+
+#region Proxy Design Pattern sample1
+
+//IMatService matService = new MatService();
+//IMatService matServiceLogProxy = new MatServiceLogProxy(matService);
+//IMatService matServiceValidationProxy = new MatServiceValidationProxy(matServiceLogProxy);
+
+//matServiceValidationProxy.Divide(10, 2);
+
+IMatService matServiceProxyChain = new MatServiceLogProxy(new MatServiceValidationProxy(new MatService()));
+
+matServiceProxyChain.Sum(20, 3);
+//matServiceProxyChain.Divide(8, 0);//throw exception
+matServiceProxyChain.Divide(12, 4);
 
 #endregion
