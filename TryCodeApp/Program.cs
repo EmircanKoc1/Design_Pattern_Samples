@@ -10,6 +10,8 @@ using Creational.Prototype.Sample1;
 using Creational.Singleton.Sample1;
 using Structural.Adapter.Sample1;
 using Structural.Bridge.Sample1;
+using Structural.Bridge.Sample2.Colors;
+using Structural.Bridge.Sample2.Shapes;
 using Structural.Decorator.Sample1;
 using Structural.Facade.Sample1;
 using Structural.Flyweight.Sample1;
@@ -292,3 +294,22 @@ adminUser2.Notify("hello", Guid.NewGuid());
 
 #endregion
 
+#region Bridge Design Pattern sample 2
+
+IColor hexaRed = new HexColor("FFFFFF");
+IColor rgbRed = new RGBColor(255,0,0);
+
+Shape circle = new Circle(hexaRed);
+Shape circle2 = new Circle(rgbRed);
+Shape rectangle = new Rectangle(rgbRed);
+Shape rectangle2 = new Rectangle(hexaRed);
+
+
+circle.Draw();
+circle2.Draw();
+rectangle.Draw();
+rectangle2.Draw();
+
+
+
+#endregion
