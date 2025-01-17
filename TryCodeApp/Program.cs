@@ -9,6 +9,7 @@ using Creational.ObjectPool.Sample1;
 using Creational.Prototype.Sample1;
 using Creational.Singleton.Sample1;
 using Structural.Adapter.Sample1;
+using Structural.Bridge.Sample1;
 using Structural.Decorator.Sample1;
 using Structural.Facade.Sample1;
 using Structural.Flyweight.Sample1;
@@ -267,6 +268,26 @@ treeManager.PlantTree(
     isFruitTree: false,
     bodyColor: "white",
     leafColor: "brown");
+
+
+#endregion
+
+#region Bridge Design Pattern sample 1
+
+INotifyMethod smsNotify = new SmsSender();
+INotifyMethod mailNotify = new MailSender();
+
+AdminUser adminUser = new AdminUser(smsNotify);
+AdminUser adminUser2 = new AdminUser(mailNotify);
+
+EmployeeUser employeeUser = new EmployeeUser(mailNotify);
+EmployeeUser employeeUser2 = new EmployeeUser(smsNotify);
+
+employeeUser.Notify("hello", Guid.NewGuid());
+employeeUser2.Notify("hello", Guid.NewGuid());
+adminUser.Notify("hello", Guid.NewGuid());
+adminUser2.Notify("hello", Guid.NewGuid());
+
 
 
 #endregion
