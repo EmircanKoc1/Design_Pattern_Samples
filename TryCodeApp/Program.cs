@@ -11,6 +11,7 @@ using Creational.Singleton.Sample1;
 using Structural.Adapter.Sample1;
 using Structural.Decorator.Sample1;
 using Structural.Facade.Sample1;
+using Structural.Flyweight.Sample1;
 using Structural.Proxy.Sample1;
 
 var userEventFactory = new UserEventFactory();
@@ -199,3 +200,74 @@ Console.WriteLine(macchiato.GetDescription() + macchiato.GetCost());
 
 
 #endregion
+
+#region Flyweight Design Pattern sample 1
+
+TreeManager treeManager = new TreeManager();
+Forest smallForest = new Forest("SmallForest", null);
+
+treeManager.PlantTree(
+    smallForest,
+    height: 22.3D,
+    width: 10.2D,
+    positionX: 11,
+    positionY: 12,
+    positionZ: -33,
+    name: "cherry",
+    isFruitTree: true,
+    bodyColor: "brown",
+    leafColor: "brown");
+
+treeManager.PlantTree(
+    smallForest,
+    height: 22.3D,
+    width: 10.2D,
+    positionX: 11,
+    positionY: 12,
+    positionZ: -33,
+    name: "cherry",
+    isFruitTree: true,
+    bodyColor: "brown",
+    leafColor: "brown");
+
+
+treeManager.PlantTree(
+    smallForest,
+    height: 22.3D,
+    width: 10.2D,
+    positionX: 11,
+    positionY: 12,
+    positionZ: -33,
+    name: "cherry",
+    isFruitTree: false,
+    bodyColor: "brown",
+    leafColor: "pink");
+
+treeManager.PlantTree(
+    smallForest,
+    height: 22.3D,
+    width: 10.2D,
+    positionX: 11,
+    positionY: 12,
+    positionZ: -33,
+    name: "oak",
+    isFruitTree: false,
+    bodyColor: "white",
+    leafColor: "brown");
+
+
+treeManager.PlantTree(
+    smallForest,
+    height: 22.3D,
+    width: 10.2D,
+    positionX: 11,
+    positionY: 12,
+    positionZ: -33,
+    name: "oak",
+    isFruitTree: false,
+    bodyColor: "white",
+    leafColor: "brown");
+
+
+#endregion
+
