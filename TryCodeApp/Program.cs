@@ -1,5 +1,4 @@
-﻿#region Abstract Design Pattern sample 1
-
+﻿
 using Creational.Builder.Sample1;
 using Creational.Factory.Sample1;
 using Creational.Factory.Sample1.Enums;
@@ -12,11 +11,14 @@ using Structural.Adapter.Sample1;
 using Structural.Bridge.Sample1;
 using Structural.Bridge.Sample2.Colors;
 using Structural.Bridge.Sample2.Shapes;
+using Structural.Composite.Sample1;
 using Structural.Decorator.Sample1;
 using Structural.Facade.Sample1;
 using Structural.Flyweight.Sample1;
 using Structural.Proxy.Sample1;
+using SCS = Structural.Composite.Sample1;
 
+#region Abstract Design Pattern sample 1
 var userEventFactory = new UserEventFactory();
 
 //var userEvent = userEventFactory.CreateUserEvent(UserEventType.UserCreated);
@@ -297,7 +299,7 @@ adminUser2.Notify("hello", Guid.NewGuid());
 #region Bridge Design Pattern sample 2
 
 IColor hexaRed = new HexColor("FFFFFF");
-IColor rgbRed = new RGBColor(255,0,0);
+IColor rgbRed = new RGBColor(255, 0, 0);
 
 Shape circle = new Circle(hexaRed);
 Shape circle2 = new Circle(rgbRed);
@@ -309,6 +311,17 @@ circle.Draw();
 circle2.Draw();
 rectangle.Draw();
 rectangle2.Draw();
+
+
+
+#endregion
+
+#region Composite Design Pattern sample 1
+
+SCS.Object box1 = new SCS.Box([new Entity("Fish"), new Entity("Tree"), new Entity("Toy")]);
+SCS.Object box2 = new SCS.Box([new Entity("Toy"), box1]);
+
+box2.ReviewInnerObjects();
 
 
 
