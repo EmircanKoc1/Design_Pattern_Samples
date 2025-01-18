@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryCodeApp", "TryCodeApp\Tr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Structural", "Structural\Structural.csproj", "{E88F342B-5916-4226-B850-E3289A591FD8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behavioral", "Behavioral\Behavioral.csproj", "{C15D746D-BAEE-45FA-BF2D-6DA616323839}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{E88F342B-5916-4226-B850-E3289A591FD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E88F342B-5916-4226-B850-E3289A591FD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E88F342B-5916-4226-B850-E3289A591FD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C15D746D-BAEE-45FA-BF2D-6DA616323839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C15D746D-BAEE-45FA-BF2D-6DA616323839}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C15D746D-BAEE-45FA-BF2D-6DA616323839}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C15D746D-BAEE-45FA-BF2D-6DA616323839}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
