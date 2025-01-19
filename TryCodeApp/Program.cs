@@ -1,4 +1,5 @@
 ﻿
+using Behavioral.Observable.Sample1;
 using Behavioral.Strategy.Sample1;
 using Creational.Builder.Sample1;
 using Creational.Factory.Sample1;
@@ -340,4 +341,22 @@ fileUploader.UploadFile(new byte[] { 1, 2, 3 });
 fileUploader.SetFileUploadStrategy(new AWSS3FileUploadStrategy());
 fileUploader.UploadFile(new byte[] { 4, 5, 6 });
 
+#endregion
+
+#region Observer Design Pattern
+
+ISubject sender = new NotificationMessagePublisher(new List<ICustomObserver>());
+ICustomObserver smsObserver = new SMSObserver();
+ICustomObserver mailObserver = new EmailObserver();
+ICustomObserver logObserver = new LogObserver();
+
+sender.Subcribe(smsObserver);
+sender.Subcribe(mailObserver);
+sender.Subcribe(logObserver);
+
+sender.Notify("Emircan");
+
+sender.Unsubcribe(smsObserver);
+
+sender.Notify("Koç");
 #endregion
