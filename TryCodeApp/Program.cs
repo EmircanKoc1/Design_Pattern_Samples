@@ -1,4 +1,5 @@
 ﻿
+using Behavioral.Iterator.Sample1;
 using Behavioral.Observable.Sample1;
 using Behavioral.Strategy.Sample1;
 using Creational.Builder.Sample1;
@@ -359,4 +360,50 @@ sender.Notify("Emircan");
 sender.Unsubcribe(smsObserver);
 
 sender.Notify("Koç");
+#endregion
+
+#region Iterator Design Pattern sample 1
+
+PersonAggregate people = new PersonAggregate([
+    new("Emircan","Koç",22),
+    new("Ahmet","Kılıç",11),
+    new ("Hilal","Bıyıklı",23)]);
+
+IIterator peopleIterator = people.GetIterator();
+
+while (peopleIterator.MoveNext())
+{
+    if (peopleIterator.Current is Person person)
+    {
+        Console.WriteLine(person);
+    }
+    else
+        Console.WriteLine("Current variable is not a person");
+
+}
+//The Following example does not work because the iterator's reset method is not called
+while (peopleIterator.MoveNext())
+{
+    if (peopleIterator.Current is Person person)
+    {
+        Console.WriteLine(person);
+    }
+    else
+        Console.WriteLine("Current variable is not a person");
+
+}
+peopleIterator.Reset();
+//The Following example work because the iterator's reset method is called
+while (peopleIterator.MoveNext())
+{
+    if (peopleIterator.Current is Person person)
+    {
+        Console.WriteLine(person);
+    }
+    else
+        Console.WriteLine("Current variable is not a person");
+
+}
+
+
 #endregion
