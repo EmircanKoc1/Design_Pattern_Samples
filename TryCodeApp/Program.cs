@@ -1,4 +1,5 @@
 ﻿
+using Behavioral.Strategy.Sample1;
 using Creational.Builder.Sample1;
 using Creational.Factory.Sample1;
 using Creational.Factory.Sample1.Enums;
@@ -324,5 +325,19 @@ SCS.Object box2 = new SCS.Box([new Entity("Toy"), box1]);
 box2.ReviewInnerObjects();
 
 
+
+#endregion
+
+
+#region Strategy Design Pattern sample 1
+var fileUploader = new FileUploaderContext();
+
+
+fileUploader.SetFileUploadStrategy(new AzureBlobFileUploadStrategy());
+fileUploader.UploadFile(new byte[] { 1, 2, 3 });
+
+
+fileUploader.SetFileUploadStrategy(new AWSS3FileUploadStrategy());
+fileUploader.UploadFile(new byte[] { 4, 5, 6 });
 
 #endregion
