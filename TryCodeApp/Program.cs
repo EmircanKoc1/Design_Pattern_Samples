@@ -1,7 +1,9 @@
 ﻿
+
 using Behavioral.Iterator.Sample1;
 using Behavioral.Observable.Sample1;
 using Behavioral.Strategy.Sample1;
+using Behavioral.TemplateMethod.Sample1;
 using Creational.Builder.Sample1;
 using Creational.Factory.Sample1;
 using Creational.Factory.Sample1.Enums;
@@ -406,4 +408,18 @@ while (peopleIterator.MoveNext())
 }
 
 
+#endregion
+
+#region Template Method Design Pattern sample 1
+
+DataProcessor apiProcessor = new APIDataProccessor();
+Console.WriteLine("Processing data from API:");
+apiProcessor.Process();  
+
+Console.WriteLine();
+
+
+DataProcessor dbProcessor = new DBDataProcessor();
+Console.WriteLine("Processing data from Database:");
+dbProcessor.Process();
 #endregion
