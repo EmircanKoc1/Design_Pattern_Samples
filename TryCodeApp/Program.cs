@@ -1,6 +1,7 @@
 ﻿
 
 using Behavioral.Iterator.Sample1;
+using Behavioral.Mediator.Sample1;
 using Behavioral.Observable.Sample1;
 using Behavioral.Strategy.Sample1;
 using Behavioral.TemplateMethod.Sample1;
@@ -422,4 +423,19 @@ Console.WriteLine();
 DataProcessor dbProcessor = new DBDataProcessor();
 Console.WriteLine("Processing data from Database:");
 dbProcessor.Process();
+#endregion
+
+#region Mediator Design Pattern sample 1
+
+Console.WriteLine();
+IAirCraftControlTower controlTower = new AirCraftControlTower();
+
+IAirCraft helicopter = new Helicopter(controlTower);
+IAirCraft passengerPlane = new PassengerPlane(controlTower);
+IAirCraft jet = new Jet(controlTower);
+
+helicopter.SendMessage("Requesting clearance to land.");
+passengerPlane.SendMessage("Holding position at 10,000 feet.");
+jet.SendMessage("Preparing for takeoff.");
+
 #endregion
