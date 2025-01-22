@@ -1,5 +1,6 @@
 ﻿
 
+using Behavioral.Command.Sample1;
 using Behavioral.Iterator.Sample1;
 using Behavioral.Mediator.Sample1;
 using Behavioral.Observable.Sample1;
@@ -415,7 +416,7 @@ while (peopleIterator.MoveNext())
 
 DataProcessor apiProcessor = new APIDataProccessor();
 Console.WriteLine("Processing data from API:");
-apiProcessor.Process();  
+apiProcessor.Process();
 
 Console.WriteLine();
 
@@ -437,5 +438,21 @@ IAirCraft jet = new Jet(controlTower);
 helicopter.SendMessage("Requesting clearance to land.");
 passengerPlane.SendMessage("Holding position at 10,000 feet.");
 jet.SendMessage("Preparing for takeoff.");
+
+#endregion
+
+#region Command Design Pattern sample 1
+
+Console.WriteLine();
+
+IMusicPlayer player = new MusicPlayer();
+IMusicCommand playCommand = new PlayCommand(player);
+IMusicCommand stopCommand = new StopCommand(player);
+IMusicCommand pauseCommand = new PauseCommand(player);
+
+playCommand.Execute();
+pauseCommand.Execute();
+pauseCommand.Execute();
+stopCommand.Execute();
 
 #endregion
