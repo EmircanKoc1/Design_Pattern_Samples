@@ -3,6 +3,7 @@
 using Behavioral.Command.Sample1;
 using Behavioral.Iterator.Sample1;
 using Behavioral.Mediator.Sample1;
+using Behavioral.Memento.Sample1;
 using Behavioral.Observable.Sample1;
 using Behavioral.Strategy.Sample1;
 using Behavioral.TemplateMethod.Sample1;
@@ -454,5 +455,28 @@ playCommand.Execute();
 pauseCommand.Execute();
 pauseCommand.Execute();
 stopCommand.Execute();
+
+#endregion
+
+#region Memento Design Pattern sample 1 
+
+var editor = new TextEditor();
+var history = new EditorHistory();
+
+editor.CurrentText = "Merhaba, Dünya!";
+history.SaveHistory(editor.SaveState());
+
+editor.CurrentText = "Merhaba, Tasarım Desenleri!";
+history.SaveHistory(editor.SaveState());
+
+editor.CurrentText = "Son değişiklik yapıldı.";
+Console.WriteLine($"Mevcut Metin: {editor.CurrentText}");
+
+editor.RestoreState(history.Undo());
+Console.WriteLine($"Geri Alındı: {editor.CurrentText}");
+
+editor.RestoreState(history.Undo());
+Console.WriteLine($"Geri Alındı: {editor.CurrentText}");
+
 
 #endregion
