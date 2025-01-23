@@ -4,6 +4,7 @@ using Behavioral.Command.Sample1;
 using Behavioral.Iterator.Sample1;
 using Behavioral.Mediator.Sample1;
 using Behavioral.Memento.Sample1;
+using Behavioral.Memento.Sample2;
 using Behavioral.Observable.Sample1;
 using Behavioral.Strategy.Sample1;
 using Behavioral.TemplateMethod.Sample1;
@@ -477,6 +478,45 @@ Console.WriteLine($"Geri Alındı: {editor.CurrentText}");
 
 editor.RestoreState(history.Undo());
 Console.WriteLine($"Geri Alındı: {editor.CurrentText}");
+
+
+#endregion
+
+#region Memento Design Pattern sample 2
+GameCharacter? gameCharacter = new GameCharacter
+{
+    CharacterType = CharacterType.Warrior,
+    Health = 100,
+    AttackPower = 50,
+    ExperiencePoints = 2000
+};
+
+GameSaveManager saveManager = new();
+
+saveManager.Save(gameCharacter.Save());
+
+Console.WriteLine(gameCharacter);
+Console.WriteLine();
+
+gameCharacter.AttackPower += 100;
+gameCharacter.Health -= 30;
+
+saveManager.Save(gameCharacter.Save());
+Console.WriteLine(gameCharacter);
+Console.WriteLine();
+
+gameCharacter.RestoreCharacter(saveManager.Undo());
+Console.WriteLine(gameCharacter);
+Console.WriteLine();
+
+//gameCharacter.CharacterType = CharacterType.Archer;
+//saveManager.Save(gameCharacter.Save());
+
+gameCharacter.RestoreCharacter(saveManager.Redo());
+Console.WriteLine(gameCharacter);
+Console.WriteLine();
+
+
 
 
 #endregion
