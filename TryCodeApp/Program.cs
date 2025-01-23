@@ -1,5 +1,6 @@
 ﻿
 
+using Behavioral.ChainOfResponsibility.Sample1;
 using Behavioral.Command.Sample1;
 using Behavioral.Iterator.Sample1;
 using Behavioral.Mediator.Sample1;
@@ -519,4 +520,22 @@ Console.WriteLine();
 
 
 
+#endregion
+
+#region Chain of Responsibility Design Pattern sample 1
+
+IImageProcessor lowQualityProcessor = new LowQualityImageProcessor();
+IImageProcessor mediumQualityProcessor = new MediumQualityImageProcessor();
+IImageProcessor highQualityProcessor = new HighQualityImageProcessor();
+
+
+lowQualityProcessor.SetNextProcessor(mediumQualityProcessor);
+mediumQualityProcessor.SetNextProcessor(highQualityProcessor);
+
+
+Console.WriteLine("Processing images...");
+
+lowQualityProcessor.Process(500);  // LowQualityImageProcessor will process
+lowQualityProcessor.Process(800);  // MediumQualityImageProcessor  will process
+lowQualityProcessor.Process(1200); // HighQualityImageProcessor  will  process
 #endregion
