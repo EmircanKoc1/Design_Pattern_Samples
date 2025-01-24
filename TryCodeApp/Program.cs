@@ -9,6 +9,7 @@ using Behavioral.Memento.Sample2;
 using Behavioral.Observable.Sample1;
 using Behavioral.Strategy.Sample1;
 using Behavioral.TemplateMethod.Sample1;
+using Behavioral.Visitor.Sample1;
 using Creational.Builder.Sample1;
 using Creational.Factory.Sample1;
 using Creational.Factory.Sample1.Enums;
@@ -538,4 +539,40 @@ Console.WriteLine("Processing images...");
 lowQualityProcessor.Process(500);  // LowQualityImageProcessor will process
 lowQualityProcessor.Process(800);  // MediumQualityImageProcessor  will process
 lowQualityProcessor.Process(1200); // HighQualityImageProcessor  will  process
+#endregion
+
+#region Visitor Design Pattern sample 1
+
+Console.WriteLine();
+
+ICharacter warrior = new Warrior();
+ICharacter mage = new Mage();
+ICharacter floorBoss = new FloorBoss();
+
+
+IVisitor healthVisitor = new HealthVisitor();
+IVisitor damageVisitor = new DamageVisitor();
+IVisitor healthDebuffVisitor = new HealtDebuffVisitor();
+
+
+
+Console.WriteLine(warrior);
+Console.WriteLine(mage);
+Console.WriteLine(floorBoss);
+Console.WriteLine();
+
+warrior.AcceptVisitor(damageVisitor);
+warrior.AcceptVisitor(damageVisitor);
+
+warrior.AcceptVisitor(healthVisitor);
+
+mage.AcceptVisitor(damageVisitor);
+
+floorBoss.AcceptVisitor(healthDebuffVisitor);
+
+
+Console.WriteLine(warrior);
+Console.WriteLine(mage);
+Console.WriteLine(floorBoss);
+
 #endregion
