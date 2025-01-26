@@ -7,6 +7,7 @@ using Behavioral.Mediator.Sample1;
 using Behavioral.Memento.Sample1;
 using Behavioral.Memento.Sample2;
 using Behavioral.Observable.Sample1;
+using Behavioral.State.Sample1;
 using Behavioral.Strategy.Sample1;
 using Behavioral.TemplateMethod.Sample1;
 using Behavioral.Visitor.Sample1;
@@ -575,4 +576,22 @@ Console.WriteLine(warrior);
 Console.WriteLine(mage);
 Console.WriteLine(floorBoss);
 
+#endregion
+
+#region State Design Pattern sample 1
+Console.WriteLine();
+var machine = new VendingMachine([new(1, 12), new(2, 20), new(3, 5)]);
+
+
+
+//machine.InsertMoney(4);
+machine.InsertMoney(12);
+
+machine.SelectProduct(1);
+
+
+machine.BuyProduct();
+
+
+Console.WriteLine(machine.ReturnMoney());
 #endregion
