@@ -2,6 +2,7 @@
 
 using Behavioral.ChainOfResponsibility.Sample1;
 using Behavioral.Command.Sample1;
+using Behavioral.Interpreter.Sample1;
 using Behavioral.Iterator.Sample1;
 using Behavioral.Mediator.Sample1;
 using Behavioral.Memento.Sample1;
@@ -594,4 +595,18 @@ machine.BuyProduct();
 
 
 Console.WriteLine(machine.ReturnMoney());
+#endregion
+
+#region Interpreter Design Pattern sample1
+
+IExpression number1 = new NumberExpression(3);
+IExpression number2 = new NumberExpression(2);
+IExpression number3 = new NumberExpression(7);
+
+IExpression addEx = new AddExpression(number1, number2);
+IExpression subEx = new SubtractExpression(addEx, number3);
+Console.WriteLine(subEx.Interpret());
+
+
+
 #endregion
